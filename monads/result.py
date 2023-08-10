@@ -8,28 +8,28 @@ R = TypeVar("R")
 class Result(Generic[T, E]):
     def or_else_throw(self) -> T:
         """
-        If the result is successful, returns the value as Ok, otherwise raises NotImplemented error
+        If the result is successful, returns the value as Ok, otherwise raises NotImplementedError
         :return: The value in Ok
         :raises: NotImplemented error if the result contains an error value
         """
-        raise NotImplemented("Must be implemented by subclasses")
+        raise NotImplementedError("Must be implemented by subclasses")
 
     def is_success(self) -> bool:
         """
-        If the result is a failure, returns the value in Err, otherwise raises NotImplemented error
+        If the result is a failure, returns the value in Err, otherwise raises NotImplementedError
         :return: The value in Err
-        :raises: NotImplemented error if the result contains a successful value
+        :raises: NotImplementedError error if the result contains a successful value
         """
-        raise NotImplemented("Must be implemented by subclasses")
+        raise NotImplementedError("Must be implemented by subclasses")
 
     def is_failure(self) -> bool:
-        raise NotImplemented("Must be implemented by subclasses")
+        raise NotImplementedError("Must be implemented by subclasses")
 
     def failure_reason(self) -> E:
-        raise NotImplemented("Must be implemented by subclasses")
+        raise NotImplementedError("Must be implemented by subclasses")
 
     def map(self, func: Callable[[T], R]) -> "Result[R, E]":
-        raise NotImplemented("Must be implemented by subclasses")
+        raise NotImplementedError("Must be implemented by subclasses")
 
     def flat_map(self, func: Callable[[T], "Result[R, E]"]) -> "Result[R, E]":
         raise NotImplementedError("Must be implemented by subclasses")
