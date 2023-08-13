@@ -16,6 +16,7 @@ class User:
     
 class UserFailureReason(Enum):
     USER_NOT_FOUND = "user_not_found"
+    SOME_OTHER_REASON = "some_other_reason"
     
 
 def get_user(user_id: str) -> Result[User, UserFailureReason]:
